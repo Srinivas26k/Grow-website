@@ -97,7 +97,7 @@ export default function BlogDetailPage({ params }: BlogPageProps) {
 
             <article className="prose prose-lg max-w-none text-gray-800 leading-relaxed">
               {/* Dangerously set inner HTML for blog content */}
-              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+              <div dangerouslySetInnerHTML={{ __html: blog.body || "" }} />
             </article>
 
             <div className="mt-12 pt-8 border-t border-gray-200 text-center">

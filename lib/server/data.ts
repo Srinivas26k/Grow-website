@@ -1,9 +1,12 @@
 // lib/data.ts
 // import fs and path for reading markdown files
 declare const require: any;
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+let fs: any, path: any;
+if (typeof window === 'undefined') {
+  fs = require('fs');
+  path = require('path');
+}
+import matter from 'gray-matter';
 
 // Dynamic loader for universities from Markdown
 export function getUniversities() {
@@ -30,13 +33,41 @@ function walkDir(dir: string, filelist: string[] = []) {
   return filelist;
 }
 
+function convertDatesToStrings(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(convertDatesToStrings);
+  } else if (obj && typeof obj === 'object') {
+    const result: any = {};
+    for (const key in obj) {
+      if (obj[key] instanceof Date) {
+        result[key] = obj[key].toISOString();
+      } else if (typeof obj[key] === 'object') {
+        result[key] = convertDatesToStrings(obj[key]);
+      } else {
+        result[key] = obj[key];
+      }
+    }
+    return result;
+  }
+  return obj;
+}
+
 export function getBlogs() {
   const dir = path.join(process.cwd(), 'tinacms/content/posts');
   const files = walkDir(dir);
   return files.map((file: string) => {
     const content = fs.readFileSync(file, 'utf-8');
-    const { data, content: body } = matter(content);
-    return { ...data, body };
+    let { data, content: body } = matter(content);
+    data = convertDatesToStrings(data);
+    // Generate slug from filename if not present in frontmatter
+    let slug = data.slug;
+    if (!slug) {
+      const base = file.replace(/^.*[\/]/, '').replace(/\.(md|mdx)$/, '');
+      slug = base;
+    }
+    // Ensure body is always a string
+    let safeBody = typeof body === 'string' ? body : '';
+    return { slug, body: safeBody, ...data };
   });
 }
 

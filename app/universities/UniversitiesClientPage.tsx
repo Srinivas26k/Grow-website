@@ -4,6 +4,7 @@ import { useState, useMemo } from "react"
 import { UniversityFilters } from "@/components/universities/university-filters"
 import { UniversityGrid } from "@/components/universities/university-grid"
 import { getUniversities } from "@/lib/server/data"
+import UniversitiesSection from "@/components/home/universities-section"
 
 export default function UniversitiesClientPage() {
   const [selectedCountry, setSelectedCountry] = useState("All")
