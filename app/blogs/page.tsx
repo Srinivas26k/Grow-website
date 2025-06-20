@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import BlogClientPage from "./BlogClientPage"
 
 export const metadata: Metadata = {
-  title: "Education Blogs - Tips, News & Insights | EduGlobal Consultancy",
+  title: "Education Blogs - Tips, News & Insights | Vgrow-Careers Consultancy",
   description:
     "Stay updated with the latest education news, exam tips, scholarship opportunities, and career guidance from our expert consultants.",
 }

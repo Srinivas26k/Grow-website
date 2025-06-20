@@ -31,18 +31,18 @@ export async function generateMetadata({ params }: UniversityPageProps): Promise
   }
 
   return {
-    title: `${university.name} - Study in ${university.country} | EduGlobal Consultancy`,
+    title: `${university.name} - Study in ${university.country} | Vgrow-Careers Consultancy`,
     description: university.description,
     keywords: `${university.name}, ${university.country}, study abroad, university, education, ${university.tags.join(", ")}`,
     openGraph: {
-      title: `${university.name} - Study in ${university.country} | EduGlobal Consultancy`,
+      title: `${university.name} - Study in ${university.country} | Vgrow-Careers Consultancy`,
       description: university.description,
       type: "website",
       locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${university.name} - Study in ${university.country} | EduGlobal Consultancy`,
+      title: `${university.name} - Study in ${university.country} | Vgrow-Careers Consultancy`,
       description: university.description,
     },
   }
@@ -60,7 +60,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
   return (
     <>
       <Head>
-        <title>{university.name} - {university.country} | EduGlobal Consultancy</title>
+        <title>{university.name} - {university.country} | Vgrow-Careers Consultancy</title>
         <meta name="description" content={university.description} />
         <meta property="og:title" content={university.name + ' - ' + university.country} />
         <meta property="og:description" content={university.description} />

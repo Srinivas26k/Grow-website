@@ -457,7 +457,7 @@ export const blogs = [
         <li><strong>English Language Requirements:</strong> Increased English language proficiency requirements for student visas.</li>
       </ul>
       <h3>General Advice</h3>
-      <p>Always refer to the official government immigration websites of your target country for the most accurate and up-to-date information. Consult with education consultants like EduGlobal for personalized advice on visa applications and policy changes.</p>
+      <p>Always refer to the official government immigration websites of your target country for the most accurate and up-to-date information. Consult with education consultants like Vgrow-Careers for personalized advice on visa applications and policy changes.</p>
       <p>Being prepared and informed will help you navigate the immigration process successfully.</p>
     `,
   },

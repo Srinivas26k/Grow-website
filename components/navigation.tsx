@@ -22,7 +22,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <GraduationCap className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">EduGlobal</span>
+            <span className="text-xl font-bold text-gray-900">Vgrow-Careers</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -30,11 +30,11 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   }
 
   return {
-    title: `${blog.title} | EduGlobal Consultancy Blog`,
+    title: `${blog.title} | Vgrow-Careers Consultancy Blog`,
     description: blog.description,
     keywords: `${blog.title}, ${blog.category}, education blog, study abroad tips, ${blog.tags?.join(", ")}`,
     openGraph: {
-      title: `${blog.title} | EduGlobal Consultancy Blog`,
+      title: `${blog.title} | Vgrow-Careers Consultancy Blog`,
       description: blog.description,
       type: "article",
       locale: "en_US",
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     },
     twitter: {
       card: "summary_large_image",
-      title: `${blog.title} | EduGlobal Consultancy Blog`,
+      title: `${blog.title} | Vgrow-Careers Consultancy Blog`,
       description: blog.description,
     },
   }
@@ -58,7 +58,7 @@ export default function BlogDetailPage({ params }: BlogPageProps) {
   return (
     <>
       <Head>
-        <title>{blog.title} | EduGlobal Consultancy</title>
+        <title>{blog.title} | Vgrow-Careers Consultancy</title>
         <meta name="description" content={blog.description} />
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.description} />
@@ -74,7 +74,7 @@ export default function BlogDetailPage({ params }: BlogPageProps) {
           'headline': blog.title,
           'description': blog.description,
           'image': blog.image || '/placeholder.jpg',
-          'author': 'EduGlobal Consultancy',
+          'author': 'Vgrow-Careers Consultancy',
           'datePublished': blog.date,
           'url': `https://yourdomain.com/blogs/${blog.slug}`,
         }) }} />

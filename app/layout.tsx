@@ -12,23 +12,23 @@ const supportedLocales = (process.env.NEXT_PUBLIC_SUPPORTED_LOCALES || "en,te,hi
 
 export const metadata: Metadata = {
   title: {
-    default: "EduGlobal Consultancy - Study in India & Abroad",
-    template: "%s | EduGlobal Consultancy",
+    default: "Vgrow-Careers Consultancy - Study in India & Abroad",
+    template: "%s | Vgrow-Careers Consultancy",
   },
   description:
     "Premier education consultancy helping students pursue higher education in India, USA, UK, Germany, Japan, and Australia. Expert guidance for university admissions, scholarships, and career counseling.",
   keywords:
     "education consultancy, study abroad, universities, scholarships, admissions, India, USA, UK, Germany, Japan, Australia",
-  authors: [{ name: "EduGlobal Consultancy" }],
+  authors: [{ name: "Vgrow-Careers Consultancy" }],
   openGraph: {
-    title: "EduGlobal Consultancy - Study in India & Abroad",
+    title: "Vgrow-Careers Consultancy - Study in India & Abroad",
     description: "Premier education consultancy helping students pursue higher education worldwide",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EduGlobal Consultancy - Study in India & Abroad",
+    title: "Vgrow-Careers Consultancy - Study in India & Abroad",
     description: "Premier education consultancy helping students pursue higher education worldwide",
   },
   robots: {

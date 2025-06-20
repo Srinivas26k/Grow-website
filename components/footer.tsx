@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <GraduationCap className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">EduGlobal</span>
+              <span className="text-xl font-bold">Vgrow-Careers</span>
             </div>
             <p className="text-gray-300">
               Premier education consultancy helping students achieve their dreams of studying in India and abroad.
@@ -60,7 +60,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">info@eduglobal.com</span>
+                <span className="text-gray-300">info@Vgrow-Careers.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
@@ -75,7 +75,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} EduGlobal Consultancy. All rights reserved.</p>
+          <p className="text-gray-400">© {new Date().getFullYear()} Vgrow-Careers Consultancy. All rights reserved.</p>
         </div>
       </div>
     </footer>

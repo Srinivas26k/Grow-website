@@ -7,9 +7,9 @@ import { CTASection } from "@/components/home/cta-section"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "EduGlobal Consultancy - Premier Education Consultancy for India & Abroad",
+  title: "Vgrow-Careers Consultancy - Premier Education Consultancy for India & Abroad",
   description:
-    "Transform your educational journey with EduGlobal Consultancy. Expert guidance for studying in India, USA, UK, Germany, Japan, and Australia. Free counseling available.",
+    "Transform your educational journey with Vgrow-Careers Consultancy. Expert guidance for studying in India, USA, UK, Germany, Japan, and Australia. Free counseling available.",
 }
 
 export default function HomePage() {

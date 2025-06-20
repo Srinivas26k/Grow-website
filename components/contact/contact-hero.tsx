@@ -39,7 +39,7 @@ export function ContactHero() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900">Email Us</p>
-                  <p className="text-gray-600">info@eduglobal.com</p>
+                  <p className="text-gray-600">info@Vgrow-Careers.com</p>
                 </div>
               </div>
 

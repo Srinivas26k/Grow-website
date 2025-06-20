@@ -66,7 +66,7 @@ export function ContactForm() {
                   <div className="text-center p-4 bg-purple-50 rounded-lg">
                     <div className="text-2xl mb-2">📧</div>
                     <p className="font-semibold text-gray-900">Email</p>
-                    <p className="text-purple-600">info@eduglobal.com</p>
+                    <p className="text-purple-600">info@Vgrow-Careers.com</p>
                   </div>
                 </div>
               </div>
