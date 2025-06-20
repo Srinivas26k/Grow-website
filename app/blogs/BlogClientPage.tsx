@@ -1,20 +1,12 @@
-"use client"
-
-import { useState, useMemo } from "react"
 import { BlogCategories } from "@/components/blogs/blog-categories"
 import { BlogGrid } from "@/components/blogs/blog-grid"
-import { blogs as allBlogs } from "@/lib/data"
+import { getBlogs } from "@/lib/server/data"
+import { useState } from "react"
 
-export default function BlogClientPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All")
-
-  const filteredBlogs = useMemo(() => {
-    if (selectedCategory === "All") {
-      return allBlogs
-    }
-    return allBlogs.filter((blog) => blog.category === selectedCategory)
-  }, [selectedCategory])
-
+export default async function BlogClientPage() {
+  const blogs = getBlogs();
+  // For filtering, you can use client-side state if needed, or filter on the server
+  // Here, we show all blogs by default
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 pt-20">
       <div className="container mx-auto px-4 py-16">
@@ -27,8 +19,9 @@ export default function BlogClientPage() {
           </p>
         </div>
 
-        <BlogCategories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-        <BlogGrid blogs={filteredBlogs} />
+        {/* You can implement category filtering as a client component if needed */}
+        {/* <BlogCategories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} /> */}
+        <BlogGrid blogs={blogs} />
       </div>
     </div>
   )

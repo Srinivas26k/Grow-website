@@ -9,20 +9,18 @@ import Link from "next/link"
 import Image from "next/image"
 
 interface University {
-  id: number
-  name: string
   slug: string
+  title: string
   country: string
   flag: string
   logo: string
-  fees: string
-  feeRange: string
+  fees_range: string
+  feeRange?: string
   rating: number
   students: string
   programs: string
-  tags: string[]
+  tags: string
   description: string
-  color: string
   category: string
   region: string
 }
@@ -44,12 +42,12 @@ export function UniversityGrid({ universities }: UniversityGridProps) {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {universities.map((university, index) => (
         <motion.div
-          key={university.id}
+          key={university.slug}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: index * 0.1 }}
         >
-          <Card className={`card-hover ${university.color} border-2 h-full`}>
+          <Card className={`card-hover border-2 h-full`}>
             <CardContent className="p-6">
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
@@ -66,7 +64,7 @@ export function UniversityGrid({ universities }: UniversityGridProps) {
               <div className="flex justify-center mb-4">
                 <Image
                   src={university.logo || "/placeholder-logo.png"}
-                  alt={university.name + " logo"}
+                  alt={university.title + " logo"}
                   width={64}
                   height={64}
                   className="rounded-lg object-contain bg-white shadow-md"
@@ -75,7 +73,7 @@ export function UniversityGrid({ universities }: UniversityGridProps) {
               </div>
 
               {/* University Info */}
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{university.name}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{university.title}</h3>
 
               <div className="flex items-center gap-2 mb-3">
                 <MapPin className="h-4 w-4 text-gray-500" />
@@ -99,19 +97,19 @@ export function UniversityGrid({ universities }: UniversityGridProps) {
               {/* Fees */}
               <div className="flex items-center gap-2 mb-4">
                 <DollarSign className="h-4 w-4 text-gray-500" />
-                <span className="text-gray-600 font-medium">{university.fees}</span>
+                <span className="text-gray-600 font-medium">{university.fees_range}</span>
               </div>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {university.tags.slice(0, 2).map((tag) => (
+                {(university.tags ? university.tags.split(',') : []).slice(0, 2).map((tag) => (
                   <Badge key={tag} variant="secondary" className="text-xs">
                     {tag}
                   </Badge>
                 ))}
-                {university.tags.length > 2 && (
+                {(university.tags ? university.tags.split(',').length : 0) > 2 && (
                   <Badge variant="outline" className="text-xs">
-                    +{university.tags.length - 2} more
+                    +{university.tags.split(',').length - 2} more
                   </Badge>
                 )}
               </div>

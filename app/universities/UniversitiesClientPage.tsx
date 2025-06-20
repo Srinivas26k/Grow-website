@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react"
 import { UniversityFilters } from "@/components/universities/university-filters"
 import { UniversityGrid } from "@/components/universities/university-grid"
-import { universities as allUniversities } from "@/lib/data"
+import { getUniversities } from "@/lib/server/data"
 
 export default function UniversitiesClientPage() {
   const [selectedCountry, setSelectedCountry] = useState("All")
@@ -11,8 +11,15 @@ export default function UniversitiesClientPage() {
   const [selectedFee, setSelectedFee] = useState("All")
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
 
+  const allUniversities = getUniversities();
+
   const filteredUniversities = useMemo(() => {
-    return allUniversities.filter((university) => {
+    return allUniversities.filter((university: {
+      country: string;
+      region: string;
+      feeRange: string;
+      category: string;
+    }) => {
       const matchesCountry = selectedCountry === "All" || university.country === selectedCountry
       const matchesRegion = selectedRegion === "All" || university.region === selectedRegion
       const matchesFee = selectedFee === "All" || university.feeRange === selectedFee

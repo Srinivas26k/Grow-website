@@ -1,4 +1,4 @@
-import { blogs } from "@/lib/data"
+import { getBlogs } from "@/lib/server/data"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { Calendar, Clock, Eye, ArrowLeft } from "lucide-react"
@@ -14,46 +14,26 @@ interface BlogPageProps {
 }
 
 export async function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }))
+  const blogs = getBlogs();
+  return blogs.map((blog) => ({ slug: blog.slug }));
 }
 
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
-  const blog = blogs.find((b) => b.slug === params.slug)
-
+  const blogs = getBlogs();
+  const blog = blogs.find((b) => b.slug === params.slug);
   if (!blog) {
-    return {
-      title: "Blog Post Not Found",
-      description: "The requested blog post could not be found.",
-    }
+    return { title: "Blog Not Found", description: "The requested blog could not be found." };
   }
-
   return {
-    title: `${blog.title} | Vgrow-Careers Consultancy Blog`,
+    title: blog.title,
     description: blog.description,
-    keywords: `${blog.title}, ${blog.category}, education blog, study abroad tips, ${blog.tags?.join(", ")}`,
-    openGraph: {
-      title: `${blog.title} | Vgrow-Careers Consultancy Blog`,
-      description: blog.description,
-      type: "article",
-      locale: "en_US",
-      publishedTime: new Date(blog.date).toISOString(),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${blog.title} | Vgrow-Careers Consultancy Blog`,
-      description: blog.description,
-    },
-  }
+  };
 }
 
 export default function BlogDetailPage({ params }: BlogPageProps) {
-  const blog = blogs.find((b) => b.slug === params.slug)
-
-  if (!blog) {
-    notFound()
-  }
+  const blogs = getBlogs();
+  const blog = blogs.find((b) => b.slug === params.slug);
+  if (!blog) notFound();
 
   return (
     <>

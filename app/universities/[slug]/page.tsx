@@ -1,4 +1,4 @@
-import { universities } from "@/lib/data"
+import { getUniversities } from "@/lib/server/data"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
@@ -15,12 +15,14 @@ interface UniversityPageProps {
 }
 
 export async function generateStaticParams() {
+  const universities = getUniversities();
   return universities.map((university) => ({
     slug: university.slug,
   }))
 }
 
 export async function generateMetadata({ params }: UniversityPageProps): Promise<Metadata> {
+  const universities = getUniversities();
   const university = universities.find((u) => u.slug === params.slug)
 
   if (!university) {
@@ -31,24 +33,25 @@ export async function generateMetadata({ params }: UniversityPageProps): Promise
   }
 
   return {
-    title: `${university.name} - Study in ${university.country} | Vgrow-Careers Consultancy`,
+    title: `${university.title} - Study in ${university.country} | Vgrow-Careers Consultancy`,
     description: university.description,
-    keywords: `${university.name}, ${university.country}, study abroad, university, education, ${university.tags.join(", ")}`,
+    keywords: `${university.title}, ${university.country}, study abroad, university, education, ${university.tags}`,
     openGraph: {
-      title: `${university.name} - Study in ${university.country} | Vgrow-Careers Consultancy`,
+      title: `${university.title} - Study in ${university.country} | Vgrow-Careers Consultancy`,
       description: university.description,
       type: "website",
       locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${university.name} - Study in ${university.country} | Vgrow-Careers Consultancy`,
+      title: `${university.title} - Study in ${university.country} | Vgrow-Careers Consultancy`,
       description: university.description,
     },
   }
 }
 
 export default function UniversityDetailPage({ params }: UniversityPageProps) {
+  const universities = getUniversities();
   const university = universities.find((u) => u.slug === params.slug)
 
   if (!university) {
@@ -60,20 +63,20 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
   return (
     <>
       <Head>
-        <title>{university.name} - {university.country} | Vgrow-Careers Consultancy</title>
+        <title>{university.title} - {university.country} | Vgrow-Careers Consultancy</title>
         <meta name="description" content={university.description} />
-        <meta property="og:title" content={university.name + ' - ' + university.country} />
+        <meta property="og:title" content={university.title + ' - ' + university.country} />
         <meta property="og:description" content={university.description} />
         <meta property="og:image" content={university.logo || '/placeholder-logo.png'} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={university.name + ' - ' + university.country} />
+        <meta name="twitter:title" content={university.title + ' - ' + university.country} />
         <meta name="twitter:description" content={university.description} />
         <meta name="twitter:image" content={university.logo || '/placeholder-logo.png'} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'CollegeOrUniversity',
-          'name': university.name,
+          'name': university.title,
           'description': university.description,
           'address': university.country,
           'url': `https://yourdomain.com/universities/${university.slug}`,
@@ -88,7 +91,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
                 <div className="text-6xl">{university.flag}</div>
               </div>
               <div className="text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{university.name}</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{university.title}</h1>
                 <p className="text-xl text-gray-600 mb-4 flex items-center justify-center md:justify-start gap-2">
                   <MapPin className="h-5 w-5 text-gray-500" />
                   {university.country}
@@ -100,7 +103,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
                   <span className="text-lg font-semibold text-gray-700 ml-1">{university.rating}</span>
                 </div>
                 <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                  {university.tags.map((tag) => (
+                  {(university.tags ? university.tags.split(',') : []).map((tag) => (
                     <Badge key={tag} variant="secondary" className="text-sm px-3 py-1">
                       {tag}
                     </Badge>
@@ -125,7 +128,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-8">
                 <section>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">About {university.name}</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">About {university.title}</h2>
                   <p className="text-lg text-gray-700 leading-relaxed">{university.details}</p>
                 </section>
 
@@ -136,7 +139,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
                       <DollarSign className="h-6 w-6 text-blue-600" />
                       <div>
                         <p className="font-semibold text-gray-900">Estimated Fees</p>
-                        <p className="text-gray-700">{university.fees}</p>
+                        <p className="text-gray-700">{university.fees_range}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 bg-green-50 p-4 rounded-lg">
@@ -164,7 +167,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose {university.name}?</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose {university.title}?</h2>
                   <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
                     <li>Consistently ranked among the top universities globally.</li>
                     <li>Strong emphasis on research and innovation.</li>
@@ -179,7 +182,7 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
                 <div className="bg-blue-600 text-white p-6 rounded-lg shadow-md text-center">
                   <GraduationCap className="h-12 w-12 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2">Ready to Apply?</h3>
-                  <p className="mb-6">Get personalized guidance for your application to {university.name}.</p>
+                  <p className="mb-6">Get personalized guidance for your application to {university.title}.</p>
                   <Button asChild className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold w-full">
                     <Link href="/contact">Book Free Counseling</Link>
                   </Button>
@@ -192,14 +195,14 @@ export default function UniversityDetailPage({ params }: UniversityPageProps) {
                       .filter((u) => u.country === university.country && u.slug !== university.slug)
                       .slice(0, 3)
                       .map((relatedUni) => (
-                        <li key={relatedUni.id}>
+                        <li key={relatedUni.slug}>
                           <Link
                             href={`/universities/${relatedUni.slug}`}
                             className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md transition-colors"
                           >
                             <div className="text-2xl">{relatedUni.flag}</div>
                             <div>
-                              <p className="font-semibold text-gray-900">{relatedUni.name}</p>
+                              <p className="font-semibold text-gray-900">{relatedUni.title}</p>
                               <p className="text-sm text-gray-600">{relatedUni.country}</p>
                             </div>
                           </Link>

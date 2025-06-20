@@ -1,246 +1,44 @@
 // lib/data.ts
-export const universities = [
-  {
-    id: 1,
-    name: "Harvard University",
-    slug: "harvard-university",
-    country: "USA",
-    flag: "🇺🇸",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "$50,000 - $70,000",
-    feeRange: "High",
-    rating: 4.9,
-    students: "23,000+",
-    programs: "180+",
-    tags: ["Top Ranked", "Research", "Ivy League"],
-    description:
-      "World-renowned institution with exceptional research opportunities and global recognition. Located in Cambridge, Massachusetts, Harvard is known for its rigorous academic programs and influential alumni.",
-    category: "Business",
-    region: "Abroad",
-    details:
-      "Harvard University is a private Ivy League research university in Cambridge, Massachusetts. Established in 1636 and named for its first benefactor, clergyman John Harvard, it is the oldest institution of higher learning in the United States and among the most prestigious in the world. Its extensive library system, diverse academic programs, and groundbreaking research initiatives attract students and scholars globally.",
-  },
-  {
-    id: 2,
-    name: "University of Oxford",
-    slug: "university-of-oxford",
-    country: "UK",
-    flag: "🇬🇧",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "£25,000 - £40,000",
-    feeRange: "High",
-    rating: 4.8,
-    students: "24,000+",
-    programs: "350+",
-    tags: ["Historic", "Prestigious", "Tutorial System"],
-    description:
-      "One of the oldest and most prestigious universities in the English-speaking world, known for its unique tutorial system and academic excellence.",
-    category: "Arts",
-    region: "Abroad",
-    details:
-      "The University of Oxford is a collegiate research university in Oxford, England. It is the oldest university in the English-speaking world and the world's second-oldest university in continuous operation. Oxford is consistently ranked among the top universities globally, renowned for its humanities, sciences, and social sciences programs, and its distinctive tutorial teaching method.",
-  },
-  {
-    id: 3,
-    name: "Technical University Munich",
-    slug: "technical-university-munich",
-    country: "Germany",
-    flag: "🇩🇪",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "€500 - €3,000",
-    feeRange: "Low",
-    rating: 4.7,
-    students: "45,000+",
-    programs: "170+",
-    tags: ["Affordable", "Engineering", "Innovation"],
-    description:
-      "Leading technical university with strong industry connections and research excellence, offering a wide range of engineering and natural science programs.",
-    category: "Engineering",
-    region: "Abroad",
-    details:
-      "Technical University of Munich (TUM) is a public research university in Munich, Germany. It is one of the largest and most prestigious universities in Germany, specializing in engineering, natural sciences, computer science, and medicine. TUM is known for its strong research output, close ties with industry, and innovative approach to education.",
-  },
-  {
-    id: 4,
-    name: "University of Tokyo",
-    slug: "university-of-tokyo",
-    country: "Japan",
-    flag: "🇯🇵",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "¥500,000 - ¥800,000",
-    feeRange: "Medium",
-    rating: 4.6,
-    students: "28,000+",
-    programs: "120+",
-    tags: ["Innovation", "Technology", "Research"],
-    description:
-      "Japan's premier university known for cutting-edge research and technological advancement, offering diverse programs across various disciplines.",
-    category: "Science",
-    region: "Abroad",
-    details:
-      "The University of Tokyo, often referred to as Todai, is a public research university located in Bunkyo, Tokyo, Japan. Established in 1877, it is the first Imperial University and is considered the most prestigious university in Japan. Todai is renowned for its strong research capabilities, particularly in science and technology, and its contributions to global innovation.",
-  },
-  {
-    id: 5,
-    name: "University of Melbourne",
-    slug: "university-of-melbourne",
-    country: "Australia",
-    flag: "🇦🇺",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "AUD 30,000 - 45,000",
-    feeRange: "High",
-    rating: 4.5,
-    students: "50,000+",
-    programs: "280+",
-    tags: ["Quality", "Work Visa", "Multicultural"],
-    description:
-      "Australia's leading university with excellent post-study work opportunities and a vibrant multicultural campus environment.",
-    category: "Medicine",
-    region: "Abroad",
-    details:
-      "The University of Melbourne is a public research university located in Melbourne, Australia. Founded in 1853, it is Australia's second oldest university and is consistently ranked among the top universities globally. It is known for its comprehensive range of programs, strong research focus, and a vibrant student community.",
-  },
-  {
-    id: 6,
-    name: "IIT Bombay",
-    slug: "iit-bombay",
-    country: "India",
-    flag: "🇮🇳",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "₹2,00,000 - ₹5,00,000",
-    feeRange: "Low",
-    rating: 4.8,
-    students: "11,000+",
-    programs: "50+",
-    tags: ["Premier", "Engineering", "IIT"],
-    description:
-      "India's top engineering institute with world-class faculty and research facilities, a hub for innovation and technological advancement.",
-    category: "Engineering",
-    region: "India",
-    details:
-      "The Indian Institute of Technology Bombay (IIT Bombay) is a public technical university located in Powai, Mumbai, India. Established in 1958, it is one of the sixteen Indian Institutes of Technology and is recognized as an Institute of National Importance. IIT Bombay is renowned for its engineering and science programs, cutting-edge research, and highly competitive admissions.",
-  },
-  {
-    id: 7,
-    name: "Stanford University",
-    slug: "stanford-university",
-    country: "USA",
-    flag: "🇺🇸",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "$55,000 - $75,000",
-    feeRange: "High",
-    rating: 4.9,
-    students: "17,000+",
-    programs: "200+",
-    tags: ["Silicon Valley", "Innovation", "Entrepreneurship"],
-    description:
-      "Located in Silicon Valley, known for innovation and entrepreneurship programs, fostering a culture of groundbreaking research and startups.",
-    category: "Business",
-    region: "Abroad",
-    details:
-      "Leland Stanford Junior University, commonly known as Stanford University, is a private research university in Stanford, California. Founded in 1885, it is located in the heart of Silicon Valley and is renowned for its academic excellence, research output, and strong ties to the technology industry. Stanford is consistently ranked among the top universities globally.",
-  },
-  {
-    id: 8,
-    name: "University of Cambridge",
-    slug: "university-of-cambridge",
-    country: "UK",
-    flag: "🇬🇧",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "£22,000 - £38,000",
-    feeRange: "High",
-    rating: 4.8,
-    students: "21,000+",
-    programs: "150+",
-    tags: ["Ancient", "Research", "Nobel Prize"],
-    description:
-      "Historic university with numerous Nobel Prize winners and groundbreaking research, offering a rich academic tradition.",
-    category: "Science",
-    region: "Abroad",
-    details:
-      "The University of Cambridge is a collegiate public research university in Cambridge, United Kingdom. Founded in 1209, it is the second-oldest university in the English-speaking world and the world's fourth-oldest surviving university. Cambridge is consistently ranked among the top universities globally and is particularly noted for its strengths in science, mathematics, and engineering.",
-  },
-  {
-    id: 9,
-    name: "RWTH Aachen University",
-    slug: "rwth-aachen-university",
-    country: "Germany",
-    flag: "🇩🇪",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "€350 - €2,500",
-    feeRange: "Low",
-    rating: 4.6,
-    students: "47,000+",
-    programs: "160+",
-    tags: ["Engineering", "Research", "Industry"],
-    description:
-      "Germany's largest technical university with strong industry partnerships and a focus on practical, application-oriented research.",
-    category: "Engineering",
-    region: "Abroad",
-    details:
-      "RWTH Aachen University is a public research university located in Aachen, North Rhine-Westphalia, Germany. With over 47,000 students enrolled in 160 study programs, it is the largest technical university in Germany. RWTH is highly regarded for its engineering and natural sciences programs and its strong collaborations with industry.",
-  },
-  {
-    id: 10,
-    name: "University of Delhi",
-    slug: "university-of-delhi",
-    country: "India",
-    flag: "🇮🇳",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "₹10,000 - ₹50,000",
-    feeRange: "Low",
-    rating: 4.5,
-    students: "600,000+",
-    programs: "70+",
-    tags: ["Affordable", "Arts", "Commerce"],
-    description:
-      "A premier university in India offering a wide range of undergraduate and postgraduate courses across various disciplines.",
-    category: "Arts",
-    region: "India",
-    details:
-      "The University of Delhi, informally known as Delhi University (DU), is a collegiate public central university located in New Delhi, India. Founded in 1922, it is one of the largest universities in the world by enrollment and is known for its high academic standards and diverse student body. DU offers a wide array of courses in arts, commerce, and science.",
-  },
-  {
-    id: 11,
-    name: "University of Toronto",
-    slug: "university-of-toronto",
-    country: "Canada",
-    flag: "🇨🇦",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "CAD 30,000 - 60,000",
-    feeRange: "High",
-    rating: 4.7,
-    students: "90,000+",
-    programs: "700+",
-    tags: ["Research", "Diverse", "Urban"],
-    description:
-      "Canada's largest university, known for its research-intensive programs and diverse academic offerings in a vibrant urban setting.",
-    category: "Science",
-    region: "Abroad",
-    details:
-      "The University of Toronto is a public research university in Toronto, Ontario, Canada. Established in 1827, it is Canada's largest university and a global leader in research and teaching. U of T is renowned for its innovations, including the discovery of insulin and stem cells, and its strong programs across various fields.",
-  },
-  {
-    id: 12,
-    name: "National University of Singapore (NUS)",
-    slug: "national-university-of-singapore",
-    country: "Singapore",
-    flag: "🇸🇬",
-    logo: "/placeholder.svg?height=80&width=80",
-    fees: "SGD 17,000 - 30,000",
-    feeRange: "Medium",
-    rating: 4.8,
-    students: "38,000+",
-    programs: "100+",
-    tags: ["Asia Top", "Innovation", "Research"],
-    description:
-      "A leading global university in Asia, known for its comprehensive curriculum and strong emphasis on research and innovation.",
-    category: "Engineering",
-    region: "Abroad",
-    details:
-      "The National University of Singapore (NUS) is a national research university in Singapore. Founded in 1905, it is the oldest higher education institution in Singapore and is consistently ranked among the top universities in Asia and the world. NUS offers a global education with a focus on Asian perspectives and expertise.",
-  },
-]
+// import fs and path for reading markdown files
+declare const require: any;
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+
+// Dynamic loader for universities from Markdown
+export function getUniversities() {
+  const dir = path.join(process.cwd(), 'tinacms/content/universities');
+  const files = fs.readdirSync(dir);
+  return files.map((file: string) => {
+    const content = fs.readFileSync(path.join(dir, file), 'utf-8');
+    const { data, content: body } = matter(content);
+    return { ...data, body };
+  });
+}
+
+// Dynamic loader for blogs from Markdown
+function walkDir(dir: string, filelist: string[] = []) {
+  const files = fs.readdirSync(dir);
+  files.forEach((file: string) => {
+    const filepath = path.join(dir, file);
+    if (fs.statSync(filepath).isDirectory()) {
+      walkDir(filepath, filelist);
+    } else if (file.endsWith('.md') || file.endsWith('.mdx')) {
+      filelist.push(filepath);
+    }
+  });
+  return filelist;
+}
+
+export function getBlogs() {
+  const dir = path.join(process.cwd(), 'tinacms/content/posts');
+  const files = walkDir(dir);
+  return files.map((file: string) => {
+    const content = fs.readFileSync(file, 'utf-8');
+    const { data, content: body } = matter(content);
+    return { ...data, body };
+  });
+}
 
 export const blogs = [
   {

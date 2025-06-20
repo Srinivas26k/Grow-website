@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/home/hero-section"
 import { CountriesSection } from "@/components/home/countries-section"
 import { UniversitiesSection } from "@/components/home/universities-section"
-import { BlogsSection } from "@/components/home/blogs-section"
+import BlogsSection from "@/components/home/blogs-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CTASection } from "@/components/home/cta-section"
 import type { Metadata } from "next"
